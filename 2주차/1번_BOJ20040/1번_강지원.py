@@ -1,6 +1,7 @@
 import sys
 
 n,m = map(int,sys.stdin.readline().split())
+
 ans = 0
 
 def find_parent(parent, x):
@@ -22,12 +23,11 @@ parent = [i for i in range(n)]
 for i in range(m):
     a,b = map(int,sys.stdin.readline().split())
 
-    if parent[a]==parent[b]:
+    if find_parent(parent,a) == find_parent(parent,b):
         ans = i+1
         break
-
-    union_parent(parent,a,b)
-
+    else:
+        union_parent(parent,a,b)
 
 print(ans)
     
