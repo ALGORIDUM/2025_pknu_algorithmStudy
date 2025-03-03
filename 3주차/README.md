@@ -1,8 +1,8 @@
 # 3주차
 
 
-| 순번 | 번호 | 문제 제목 |
-| :--: | :--: | :--: | :--: | :--: |
+| 순번 | 번호 | 문제 제목 | 
+| :--: | :--: | :--: | 
 | 1 | 81302 | [거리두기 확인하기](https://school.programmers.co.kr/learn/courses/30/lessons/81302) |
 | 2 | 12978 | [배달](https://school.programmers.co.kr/learn/courses/30/lessons/12978) |
 | 3 | 43163 | [단어 변환](https://school.programmers.co.kr/learn/courses/30/lessons/43163) |
