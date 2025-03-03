@@ -29,6 +29,7 @@ for t in range(T):
 
             for rule in rules[now]:
                 status[rule]-=1
+                print(dp)
                 if dp[rule]!=0:
                     dp[rule]=max(dp[now],dp[rule])
                 else:
