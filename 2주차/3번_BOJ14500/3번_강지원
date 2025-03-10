@@ -1,0 +1,111 @@
+import sys
+
+shapes = [
+    [
+        [0,1],[1,1],[2,1],[2,0]
+    ],
+    [
+        [0,0],[0,1],[1,0],[2,0]
+    ],
+    [
+        [0,0],[0,1],[0,2],[1,2]
+    ],
+    [
+        [0,2],[1,0],[1,1],[1,2]
+    ],
+    [
+        [0,0],[1,0],[2,0],[2,1]
+    ],
+    [
+        [0,0],[1,0],[1,1],[1,2]
+    ],
+    [
+        [0,0],[0,1],[1,1],[2,1]
+    ],
+    [
+        [0,0],[1,0],[0,1],[0,2]
+    ],
+    [
+        [0,0],[0,1],[1,0],[1,1]
+    ],
+    [
+        [0,0],[0,1],[0,2],[0,3]
+    ],
+    [
+        [0,0],[1,0],[2,0],[3,0]
+    ],
+    [
+        [0,0],[1,0],[1,1],[2,1]
+    ],
+    [
+        [0,1],[1,0],[1,1],[2,0]
+    ],
+    [
+        [0,1],[0,2],[1,0],[1,1]
+    ],
+    [
+        [0,0],[0,1],[1,1],[1,2]
+    ],
+    [
+        [0,0],[1,0],[2,0],[1,1]
+    ],
+    [
+        [0,1],[1,0],[1,1],[1,2]
+    ],
+    [
+        [1,0],[0,1],[1,1],[2,1]
+    ],
+    [
+        [0,0],[0,1],[0,2],[1,1]
+    ]
+
+]
+
+
+N,M = map(int,sys.stdin.readline().split())
+board =[]
+for i in range(N):
+    board.append(list(map(int,sys.stdin.readline().split())))
+
+
+def check(x,y):
+    if x<0 or x>=N or y<0 or y>=M:
+        return False
+    return True
+
+
+ans = 0
+for shape in shapes:
+    for i in range(N):
+        for j in range(M):
+            ax = i+shape[0][0]
+            ay = j+shape[0][1]
+
+            bx = i+shape[1][0]
+            by = j+shape[1][1]
+        
+            cx = i+shape[2][0]
+            cy = j+shape[2][1]
+
+            dx = i+shape[3][0]
+            dy = j+shape[3][1]
+
+            if not check(ax,ay) or not check(bx,by) or not check(cx,cy) or not check(dx,dy):
+                continue
+            else:
+                tmp = board[ax][ay]+board[bx][by]+board[cx][cy]+board[dx][dy]
+                #print(ax,ay,",",bx,by,",",cx,cy,",",dx,dy,"=",tmp)
+                ans = max(tmp,ans)
+
+print(ans)
+
+print(len(shapes))
+
+for shape in shapes:
+    for i in range(N):
+        for j in range(M):
+            if [i,j] in shape:
+                print("*",end="")
+            else:
+                print(" ",end="")
+        print("")
