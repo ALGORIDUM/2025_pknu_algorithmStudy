@@ -1,4 +1,5 @@
 import sys
+import heapq
 
 T = int(sys.stdin.readline())
 
@@ -15,6 +16,17 @@ for t in range(T):
         status[y-1]+=1
     
     W= int(sys.stdin.readline())
+
+    q=[]
+    for i in range(N):
+        if status[i]==0:
+            heapq.heappush(q,i)
+    
+    dp = [0 for i in range(N)]
+    while q:
+        now = heapq.heappop(q)
+
+
     
     now = 0    
 
