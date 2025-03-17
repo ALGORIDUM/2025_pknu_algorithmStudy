@@ -1,4 +1,5 @@
 import sys
+import heapq
 
 T = int(sys.stdin.readline())
 
@@ -15,6 +16,17 @@ for t in range(T):
         status[y-1]+=1
     
     W= int(sys.stdin.readline())
+
+    q=[]
+    for i in range(N):
+        if status[i]==0:
+            heapq.heappush(q,i)
+    
+    dp = [0 for i in range(N)]
+    while q:
+        now = heapq.heappop(q)
+
+
     
     now = 0    
 
@@ -29,6 +41,7 @@ for t in range(T):
 
             for rule in rules[now]:
                 status[rule]-=1
+                print(dp)
                 if dp[rule]!=0:
                     dp[rule]=max(dp[now],dp[rule])
                 else:

@@ -59,17 +59,6 @@ def get_stairs(stair,depth,a):
         stair[next[0]][next[1]]=True
         get_stairs(stair,depth+1,i)
         stair[next[0]][next[1]]=False
-
-    
-    # for i in range(a,H+1):
-    #     for j in range(1,N):
-    #         if stair[i][j] == True or stair[i][j+1]==True:
-    #             continue
-
-    #         stair[i][j]=True
-    #         get_stairs(stair,depth+1,i)
-        
-    #         stair[i][j]=False
     
     return -1
 
